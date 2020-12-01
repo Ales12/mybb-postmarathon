@@ -484,6 +484,7 @@ function postmarathon_misc() {
                 LEFT JOIN ".TABLE_PREFIX."users u
                 ON p.uid = u.uid
                 WHERE p.dateline BETWEEN '{$marathon['startdate']}' AND '{$marathon['enddate']}'
+		and  t.fid IN ('" . str_replace(',', '\',\'', $boards) . "')
                 AND (u.as_uid = '$uid' OR u.uid = '$uid')
             ");
 
